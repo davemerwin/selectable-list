@@ -1,0 +1,70 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>A selectable list</title>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js" ></script>
+		<style>
+			.hidden {
+
+				display:none;
+			}
+
+			.show {
+
+				display:block;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				$('#id-submit').on('click', $(this), function() {
+					var userId = $('#user-id').val();
+					$('#user-app-list').children('li').hide().filter('[data-index~="' + userId + '"]').show();
+					event.preventDefault();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<h3>To select your library, enter your ID number and click submit.</h3>
+		<form>
+			<input type="text" value="" placeholder="Enter ID Here" id="user-id">
+			<input type="submit" value="Submit" id="id-submit">
+		</form>
+		<ul id="user-app-list">
+			<li data-index="cd123 cd124 cd125 bg12 bg19 bg20" class="hidden">
+				<h3><a href="http://apple.com">Apple</a></h3>
+			</li>
+			<li data-index="cd127 cd128 cd130 bg12" class="hidden">
+				<h3><a href="http://amazon.com">Amazon</a></h3>
+			</li>
+			<li data-index="cd121 cd119 cd125 bg12" class="hidden">
+				<h3><a href="http://google.com">Google</a></h3>
+			</li>
+			<li data-index="cd123 cd124 cd125 bg12 bg20" class="hidden">
+				<h3><a href="http://youtube.com">YouTube</a></h3>
+			</li>
+			<li data-index="cd123 cd124 cd125 bg12 bg20" class="hidden">
+				<h3><a href="http://vimeo.com">Vimeo</a></h3>
+			</li>
+			<li data-index="cd127 cd127 cd120 bg12 bg20" class="hidden">
+				<h3><a href="http://ebay.com">Ebay</a></h3>
+			</li>
+			<li data-index="cd127 cd119 cd118 bg12 bg20" class="hidden">
+				<h3><a href="http://craigslist.org">Craigslist</a></h3>
+			</li>
+			<li data-index="cd128 cd127 cd130 bg12 bg20" class="hidden">
+				<h3><a href="http://inside.com">Inside</a></h3>
+			</li>
+			<li data-index="cd129 cd119" class="hidden">
+				<h3><a href="http://cnn.com">CNN</a></h3>
+			</li>
+			<li data-index="cd130 cd118 cd125 bg12 bg20" class="hidden">
+				<h3><a href="http://bbc.com">BBC</a></h3>
+			</li>
+		</ul>
+
+		<p>Test with any of the following: cd118, cd119, cd120, cd121, cd123, cd124, cd125, cd127, cd128, cd129, cd130, bg12, bg19, bg20</p>
+	</body>
+	</html>
